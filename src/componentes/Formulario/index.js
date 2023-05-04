@@ -5,17 +5,6 @@ import Botao from "../Botao";
 import {useState} from "react";
 
 const Formulario = (props) => {
-
-    const times = [
-        'Programação',
-        'Front-end',
-        'Data science',
-        'Devops',
-        'UX e design',
-        'Mobile',
-        'Inovação e Gestão'
-    ]
-
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
@@ -30,6 +19,10 @@ const Formulario = (props) => {
             time
 
         })
+        setNome('')
+        setCargo('')
+        setImagem('')
+        setTime('')
     }
 
     return (
@@ -57,9 +50,9 @@ const Formulario = (props) => {
                     aoAlterado={valor => setImagem(valor)}
                 />
                 <ListaSuspensa
-                    obrigatorio={true}
+                    required={true}
                     label ="Time"
-                    itens={times}
+                    itens={props.times}
                     valor={time}
                     aoAlterado={valor => setTime(valor)}
                 />
